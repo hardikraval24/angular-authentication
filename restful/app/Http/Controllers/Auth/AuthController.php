@@ -67,13 +67,19 @@ class AuthController extends Controller
 
         $user = \App\User::create($request->all());
 
-        return new JsonResponse([
-            'status_code' => 200,
-            'message' => 'User created.',
-            'data' => [
-                'User' => $user,
-            ]
-        ]);
+        try {
+            // Attempt to verify the credentials and create a token for the user
+            if (!$token = JWTAuth::attempt(
+                $this->getCredentials($request)
+            )) {
+                return $this->onUnauthorized();
+            }
+        } catch (JWTException $e) {
+            // Something went wrong whilst attempting to encode the token
+            return $this->onJwtGenerationError();
+        }
+
+        return $this->onAuthorized($token);
 
         
     }

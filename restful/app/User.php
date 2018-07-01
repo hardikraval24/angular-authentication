@@ -64,8 +64,8 @@ class User extends Model implements
      *
      * @return array
      */
-    /*public function getPasswordAttribute($value)
+    public function setPasswordAttribute($value)
     {        
-        return app('hash')->make($value);
-    }*/
+        return $this->attributes['password'] = app('hash')->make($value);
+    }
 }

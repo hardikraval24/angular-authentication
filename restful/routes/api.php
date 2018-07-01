@@ -14,6 +14,7 @@
 $api = $app->make(Dingo\Api\Routing\Router::class);
 
 $api->version('v1', function ($api) {
+   
     $api->post('/auth/login', [
         'as' => 'api.auth.login',
         'uses' => 'App\Http\Controllers\Auth\AuthController@postLogin',
@@ -23,6 +24,12 @@ $api->version('v1', function ($api) {
         'as' => 'api.auth.register',
         'uses' => 'App\Http\Controllers\Auth\AuthController@postRegister',
     ]);
+
+    $api->get('/events', [
+        'as' => 'events',
+        'uses' => 'App\Http\Controllers\EventController@index',
+    ]);
+
 
     $api->group([
         'middleware' => 'api.auth',
