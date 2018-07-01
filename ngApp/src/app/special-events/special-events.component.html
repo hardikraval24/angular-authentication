@@ -1,3 +1,14 @@
-<p>
-  special-events works!
-</p>
+<br>
+<div class="row">
+	<div class="col-sm-3 col-md-4" *ngFor="let specialEvent of specialEvents">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">{{ specialEvent.name }}</h4>
+				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+				<p class="card-text">{{ specialEvent.description }}</p>
+				<a href="#" class="btn btn-success">Buy Tickets</a>
+			</div>
+		</div>
+	</div>
+</div>
+

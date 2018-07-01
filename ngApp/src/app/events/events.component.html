@@ -1,3 +1,14 @@
-<p>
-  events works!
-</p>
+<br>
+<div class="row">
+	<div class="col-sm-3 col-md-4" *ngFor="let event of events">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">{{ event.name }}</h4>
+				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+				<p class="card-text">{{ event.description }}</p>
+				<a href="#" class="btn btn-primary">Buy Tickets</a>
+			</div>
+		</div>
+	</div>
+</div>
+

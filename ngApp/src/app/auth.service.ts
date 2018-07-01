@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost/restful/public/api/auth/register";
-  private _loginUrl = "http://localhost/restful/public/api/auth/login";
+  private _registerUrl = "http://localhost/angular-authentication/restful/public/api/auth/register";
+  private _loginUrl = "http://localhost/angular-authentication/restful/public/api/auth/login";
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +19,10 @@ export class AuthService {
   loginUser(user)
   {
     return this.http.post<any>(this._loginUrl,user);
+  }
+
+  loggedIn()
+  {
+    return !!localStorage.getItem("token");
   }
 }
