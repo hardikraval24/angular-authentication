@@ -25,10 +25,7 @@ $api->version('v1', function ($api) {
         'uses' => 'App\Http\Controllers\Auth\AuthController@postRegister',
     ]);
 
-    $api->get('/events', [
-        'as' => 'events',
-        'uses' => 'App\Http\Controllers\EventController@index',
-    ]);
+    
 
 
     $api->group([
@@ -50,5 +47,11 @@ $api->version('v1', function ($api) {
             'uses' => 'App\Http\Controllers\Auth\AuthController@deleteInvalidate',
             'as' => 'api.auth.invalidate'
         ]);
+
+        $api->get('/events', [
+            'as' => 'events',
+            'uses' => 'App\Http\Controllers\EventController@index',
+        ]);
+        
     });
 });
