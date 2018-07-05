@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost/angular-authentication/restful/public/api/auth/register";
-  private _loginUrl = "http://localhost/angular-authentication/restful/public/api/auth/login";
+  private _registerUrl = `${environment.api}/auth/register`;
+  private _loginUrl = `${environment.api}/auth/login`;
 
   constructor(private http: HttpClient) { }
 

@@ -14,6 +14,8 @@ import { AuthService } from './auth.service';
 import { EventService } from './event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { LoadingModule } from 'ngx-loading';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingModule
   ],
   providers: [AuthService,AuthGuard,EventService,
   {

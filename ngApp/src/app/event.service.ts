@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 // https://www.youtube.com/watch?v=WmLe1tcVv6A&index=19&list=PLC3y8-rFHvwg2RBz6UplKTGIXREj9dV0G 
 
@@ -8,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EventService {
 
-  private _eventsUrl = "http://localhost/angular-authentication/restful/public/api/events";
-  private _specialEventsUrl = "http://localhost/angular-authentication/restful/public/api/events";
+  private _eventsUrl =`${environment.api}/events`
+  private _specialEventsUrl = `${environment.api}/events`;
 
   constructor(private http:HttpClient) { }
 

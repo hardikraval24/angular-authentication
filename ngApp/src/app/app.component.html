@@ -21,11 +21,12 @@
         <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
       </li>
       <li class="nav-item" *ngIf="_auth.loggedIn()" >
-        <a class="nav-link" (click)="logoutUser()" >Logout</a>
+        <a class="nav-link" (click)="logoutUser()" style="cursor: pointer;" >Logout</a>
       </li>      
     </ul>    
   </div>
 </nav>
 <div class="container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <router-outlet></router-outlet>
 </div>

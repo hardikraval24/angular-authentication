@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  public loading = false;
+  
   title = 'app';
 
   constructor(
@@ -17,7 +20,8 @@ export class AppComponent {
 
   logoutUser()
   {
+    this.loading = true;
     localStorage.removeItem("token");
-    this._router.navigate(["/login"]);
+    this._router.navigate(["/login"]);    
   }
 }
