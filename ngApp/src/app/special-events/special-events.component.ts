@@ -25,7 +25,8 @@ export class SpecialEventsComponent implements OnInit {
     this._eventService.getSpecialEvents()
           .subscribe(
             res => {
-              this.specialEvents = res.data.events              
+              this.specialEvents = res.data.events;
+              this._app.loading = false;
             },
             err => {
               if(err instanceof HttpErrorResponse)
@@ -36,8 +37,7 @@ export class SpecialEventsComponent implements OnInit {
                 }
               }
             }
-          )
-          this._app.loading = false;
+          )          
   }
 
 }

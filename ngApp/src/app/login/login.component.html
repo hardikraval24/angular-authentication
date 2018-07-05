@@ -6,16 +6,30 @@
           <h3 class="mb-0">Login</h3>
         </div>
         <div class="card-body">
-          <form class="form">
+          <form class="form" #userLogin="ngForm">            
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control" [(ngModel)]="loginUserData.email" name="email" placeholder="Enter email" required>              
+                <input type="email" 
+                class="form-control" 
+                [class.is-invalid]="email.invalid && email.touched" 
+                [(ngModel)]="loginUserData.email" 
+                #email="ngModel" name="email" 
+                placeholder="Enter email" required>              
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
               </div>
+
               <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control" [(ngModel)]="loginUserData.password" name="password" placeholder="Enter your Password" required>
+                <input type="password" 
+                class="form-control" 
+                [class.is-invalid]="password.invalid && password.touched" 
+                [(ngModel)]="loginUserData.password" 
+                #password="ngModel" 
+                name="password" 
+                placeholder="Enter your Password" required>
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
               </div>
-              <button (click)="loginUser()" class="btn btn-success">Login</button>
+              <button (click)="loginUser()" [disabled]="userLogin.form.invalid" class="btn btn-success">Login</button>
           </form>
         </div>
       </div>

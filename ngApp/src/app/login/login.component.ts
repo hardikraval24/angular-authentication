@@ -16,10 +16,7 @@ export class LoginComponent implements OnInit {
     private _auth:AuthService,
     private _router : Router,
     private _app : AppComponent
-  ) { 
-    
-    this._app.loading = false;
-  }
+  ) {}
 
   ngOnInit() {
   }

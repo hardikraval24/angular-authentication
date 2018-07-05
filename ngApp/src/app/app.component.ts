@@ -11,7 +11,7 @@ export class AppComponent {
   
   public loading = false;
   
-  title = 'app';
+  title = 'EventHub';
 
   constructor(
     private _auth : AuthService,
@@ -22,6 +22,7 @@ export class AppComponent {
   {
     this.loading = true;
     localStorage.removeItem("token");
-    this._router.navigate(["/login"]);    
+    this._router.navigate(["/login"]);
+    this.loading = false;
   }
 }

@@ -58,8 +58,9 @@ class AuthController extends Controller
     {
         try {
             $this->validate($request, [
-                'email' => 'required|max:255',
+                'email' => 'required|email|max:255',
                 'password' => 'required',
+                'name'=> 'required|max:10'
             ]);
         } catch (ValidationException $e) {
             return $e->getResponse();
