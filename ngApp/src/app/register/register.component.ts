@@ -10,7 +10,11 @@ import { AppComponent } from '../app.component';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = {};
+  registerUserData = {
+    name : '',
+    email : '',
+    password : ''
+  };
 
   constructor(
     private _auth:AuthService,
@@ -29,10 +33,11 @@ export class RegisterComponent implements OnInit {
       res => {
         localStorage.setItem("token",res.data.token)        
         this._router.navigate(['/special']);
+        this._app.loading = false;
       },
       err => console.log(err)
     );
-    this._app.loading = false;
+    
   }
 
 }

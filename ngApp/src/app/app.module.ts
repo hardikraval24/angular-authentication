@@ -15,7 +15,8 @@ import { EventService } from './event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { LoadingModule } from 'ngx-loading';
-
+import { ModalModule } from 'ngx-bootstrap';
+import { DemoModalComponent } from './demo-modal/demo-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,16 @@ import { LoadingModule } from 'ngx-loading';
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    DemoModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    LoadingModule
+    LoadingModule,
+    ModalModule
   ],
   providers: [AuthService,AuthGuard,EventService,
   {

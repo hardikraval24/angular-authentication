@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'EventHub';
 
   constructor(
-    private _auth : AuthService,
+    public _auth : AuthService,
     private _router : Router
   ){}
 

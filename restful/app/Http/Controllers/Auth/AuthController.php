@@ -93,7 +93,8 @@ class AuthController extends Controller
     protected function onUnauthorized()
     {
         return new JsonResponse([
-            'message' => 'invalid_credentials'
+            'status_code' => 401,
+            'message' => "Email address & password doesn't matched."
         ], Response::HTTP_UNAUTHORIZED);
     }
 

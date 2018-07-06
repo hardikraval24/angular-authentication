@@ -10,7 +10,12 @@ import { AppComponent } from '../app.component';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {};
+  err_message : string;
+
+  loginUserData = {
+    email : '',
+    password : ''
+  };
 
   constructor(
     private _auth:AuthService,
@@ -27,12 +32,16 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
-        localStorage.setItem("token",res.data.token);        
+        localStorage.setItem("token",res.data.token);
         this._router.navigate(["/special"]);
       },
-      err => console.log(err),
+      err => {
+        this.err_message = err.error.message;
+        this._app.loading = false;
+        // console.log(err);
+      },
     );
-    this._app.loading = false;
+    
   }
 
 }
