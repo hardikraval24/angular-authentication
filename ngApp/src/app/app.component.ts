@@ -15,7 +15,7 @@ export class AppComponent {
 
   constructor(
     public _auth : AuthService,
-    private _router : Router
+    private _router : Router    
   ){}
 
   logoutUser()
@@ -24,5 +24,5 @@ export class AppComponent {
     localStorage.removeItem("token");
     this._router.navigate(["/login"]);
     this.loading = false;
-  }
+  }  
 }

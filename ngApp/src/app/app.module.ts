@@ -19,6 +19,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { DemoModalComponent } from './demo-modal/demo-modal.component';
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     RegisterComponent,
@@ -33,7 +34,7 @@ import { DemoModalComponent } from './demo-modal/demo-modal.component';
     FormsModule,
     HttpClientModule,
     LoadingModule,
-    ModalModule
+    ModalModule.forRoot()
   ],
   providers: [AuthService,AuthGuard,EventService,
   {
